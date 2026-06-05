@@ -1,18 +1,18 @@
-
 "use client";
+
 import { useState } from "react";
 
 export default function Page() {
   const [acciones, setAcciones] = useState("");
-  const [resultado, setResultado] = useState(null);
+  const [resultado, setResultado] = useState<number | null>(null);
 
   const calcular = () => {
     const valor = Number(acciones);
-    setResultado(valor * 100); // demo
+    setResultado(valor * 100);
   };
 
   return (
-    <div style={{ padding: 20 }}>
+    <div style={{ padding: 20, maxWidth: 400, margin: "auto" }}>
       <h1>Mi app de acciones</h1>
 
       <input
@@ -24,7 +24,7 @@ export default function Page() {
 
       <button onClick={calcular}>Calcular</button>
 
-      {resultado && <p>Total: {resultado} EUR</p>}
+      {resultado !== null && <p>Total: {resultado} EUR</p>}
     </div>
   );
 }
